@@ -1,0 +1,129 @@
+### Looks
+font pango:Victor Mono SemiBold 9
+
+default_border pixel 1
+
+title_align left
+
+titlebar_border_thickness 1
+titlebar_padding 8 3
+
+### Theme
+# Catppuccin frappe
+set {
+  $c_base   #303446
+  $c_mantle #292c3c
+  $c_crust  #232634
+
+  $c_text     #c6d0f5
+  $c_subtext0 #a5adce
+  $c_subtext1 #b5bfe2
+
+  $c_surface0 #414559
+  $c_surface1 #51576d
+  $c_surface2 #626880
+
+  $c_overlay0 #737994
+  $c_overlay1 #838ba7
+  $c_overlay2 #949cbb
+
+  $c_blue      #8caaee
+  $c_lavender  #babbf1
+  $c_sapphire  #85c1dc
+  $c_sky       #99d1db
+  $c_teal      #81c8be
+  $c_green     #a6d189
+  $c_yellow    #e5c890
+  $c_peach     #ef9f76
+  $c_maroon    #ea999c
+  $c_red       #e78284
+  $c_mauve     #ca9ee6
+  $c_pink      #f4b8e4
+  $c_flamingo  #eebebe
+  $c_rosewater #f2d5cf
+}
+
+# Catppuccin mocha
+# set {
+#   $c_base   #1e1e2e
+#   $c_mantle #181825
+#   $c_crust  #11111b
+#
+#   $c_text     #cdd6f4
+#   $c_subtext0 #a6adc8
+#   $c_subtext1 #bac2de
+#
+#   $c_surface0 #313244
+#   $c_surface1 #45475a
+#   $c_surface2 #585b70
+#
+#   $c_overlay0 #6c7086
+#   $c_overlay1 #7f849c
+#   $c_overlay2 #9399b2
+#
+#   $c_blue      #89b4fa
+#   $c_lavender  #b4befe
+#   $c_sapphire  #74c7ec
+#   $c_sky       #89dceb
+#   $c_teal      #94e2d5
+#   $c_green     #a6e3a1
+#   $c_yellow    #f9e2af
+#   $c_peach     #fab387
+#   $c_maroon    #eba0ac
+#   $c_red       #f38ba8
+#   $c_mauve     #cba6f7
+#   $c_pink      #f5c2e7
+#   $c_flamingo  #f2cdcd
+#   $c_rosewater #f5e0dc
+# }
+
+# State                 border      bg          text        indicator view border
+client.focused          $c_mauve    $c_surface0 $c_text     $c_yellow $c_mauve
+client.focused_inactive $c_blue     $c_surface2 $c_subtext0 $c_yellow $c_blue
+client.unfocused        $c_overlay0 $c_surface2 $c_subtext0 $c_yellow $c_overlay0
+client.urgent           $c_red      $c_surface0 $c_text     $c_yellow $c_red
+
+bar {
+  bar swaybar_command waybar
+  id 'bar-0'
+  output eDP-1
+  output 'AOC CU34V5C UPJN6HA000565'
+}
+bindsym $mod+x exec killall -SIGUSR1 waybar
+
+# bar {
+#   id 'bar-1'
+#   binding_mode_indicator yes
+#   font pango:Victor Mono Semibold, Font Awesome 6 Free 12
+#   position top
+#   separator_symbol |
+#   status_command i3status-rs
+#   status_edge_padding 3
+#   status_padding 3
+#   wrap_scroll no
+#
+#   # tray_padding 4
+#   tray_output none
+#
+#   colors {
+#     background         $c_surface0
+#     statusline         $c_subtext0
+#     separator          $c_subtext0
+#
+#     focused_background $c_base
+#     focused_statusline $c_text
+#     focused_separator  $c_text
+#
+#     focused_workspace  $c_mauve    $c_surface0 $c_mauve
+#     active_workspace   $c_blue     $c_surface0 $c_blue
+#     inactive_workspace $c_surface2 $c_surface1 $c_subtext0
+#     urgent_workspace   $c_red      $c_surface0 $c_red
+#
+#     binding_mode       $c_overlay1 $c_overlay0 $c_text
+#   }
+#
+#   output eDP-1
+#   output 'AOC CU34V5C UPJN6HA000565'
+# }
+
+# vim: set ft=swayconfig:

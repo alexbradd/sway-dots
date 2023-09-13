@@ -1,0 +1,165 @@
+// vim: set ft=jsonc sw=4 tabstop=4 softtabstop=4:
+[
+    {
+        "ipc": true,
+        "id": "bar-0",
+        "layer": "top",
+        "exclusive": true,
+        "position": "top",
+        "fixed-center": false,
+        "spacing": 0, // Gaps between modules
+        "modules-left": [
+            "sway/workspaces",
+            "sway/mode"
+        ],
+        "modules-center": [],
+        "modules-right": [
+            "custom/media",
+            "custom/dnd",
+            "custom/nightlight",
+            "idle_inhibitor",
+            "pulseaudio",
+            "network",
+            "bluetooth",
+            "backlight",
+            "battery",
+            "clock",
+            "sway/scratchpad",
+            "tray"
+        ],
+        "sway/workspaces": {
+            "disable-scroll": true,
+            "format": "{name}",
+            "all-workspaces": true
+        },
+        "sway/mode": {
+            "format": "{}"
+        },
+        "tray": {
+            // "icon-size": 21,
+            "spacing": 10
+        },
+        "sway/scratchpad": {
+            "format": "{icon} {count}",
+            "show-empty": true,
+            "format-icons": [
+                ""
+            ],
+            "tooltip": false,
+            "on-click": "swaymsg 'scratchpad show'"
+        },
+        "clock": {
+            "format": "{:%H:%M  %d/%m/%y}",
+            "locale": "it_IT.UTF-8",
+            "today-format": "<span color='#ca9ee6'><b><u>{}</u></b></span>",
+            "calendar-weeks-pos": "right",
+            "format-calendar": "<span color='#c6d0f5'>{}</span>",
+            "format-calendar-weeks": " <span color='#a5adce' size='small'>{}</span>",
+            "format-calendar-weekdays": "<span color='#ca9ee6'><b>{}</b></span>",
+            "tooltip": true,
+            "tooltip-format": "<span size='large'><b>{:%A %d %B}</b></span>\n\n<span size='large'>{calendar}</span>",
+            "on-click": "org.mozilla.Thunderbird -calendar"
+        },
+        "battery": {
+            "states": {
+                "warning": 30,
+                "critical": 15
+            },
+            "format": "{capacity}% {icon}",
+            "format-charging": "{capacity}% ",
+            "format-plugged": "{capacity}% ",
+            "format-alt": "{time}",
+            "format-icons": [
+                "",
+                "",
+                "",
+                "",
+                ""
+            ]
+        },
+        "backlight": {
+            "format": "{percent}% {icon}",
+            "format-icons": [
+                ""
+            ],
+            "on-scroll-up": "brightnessctl set 1+",
+            "on-scroll-down": "brightnessctl set 1-"
+        },
+        "bluetooth": {
+            "controller": "C4:23:60:0B:DD:98",
+            "format": "",
+            "format-connected": " {num_connections}",
+            "tooltip-format": "{controller_alias}\t{controller_address}",
+            "tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{device_enumerate}",
+            "tooltip-format-enumerate-connected": "{device_alias}\t{device_address}",
+            "tooltip-format-enumerate-connected-battery": "{device_alias}({device_battery_percentage}%)\t{device_address}"
+        },
+        "network": {
+            "format": "Network",
+            "format-wifi": "{essid} ({signalStrength}%) ",
+            "format-ethernet": "{ipaddr}/{cidr} ",
+            "format-disabled": "",
+            "format-linked": "{ifname} (No IP) !",
+            "tooltip-format": "{ifname} {ipaddr}/{cidr} via {gwaddr}",
+            "tooltip-format-disconnected": "Network disconnected",
+            "tooltip-format-disabled": "Network disabled",
+            "on-click": "nm-connection-editor"
+        },
+        "pulseaudio": {
+            // "scroll-step": 1, // %, can be a float
+            "format": "{volume}% {icon} {format_source}",
+            "format-bluetooth": "{volume}% {icon} {format_source}",
+            "format-bluetooth-muted": " {icon} {format_source}",
+            "format-muted": " {format_source}",
+            "format-source": "{volume}% ",
+            "format-source-muted": "",
+            "format-icons": {
+                "headphone": "",
+                "hands-free": "",
+                "headset": "",
+                "phone": "",
+                "portable": "",
+                "car": "",
+                "default": [
+                    "",
+                    "",
+                    ""
+                ]
+            },
+            "on-click": "flatpak run org.pulseaudio.pavucontrol"
+        },
+        "custom/media": {
+            "format": "{icon} {}",
+            "return-type": "json",
+            "max-length": 100,
+            "format-icons": {
+                "spotify": "",
+                "default": "🎜"
+            },
+            "escape": true,
+            "exec": "$HOME/.config/waybar/scripts/mediaplayer.py",
+            "on-click": "playerctl play-pause"
+        },
+        "idle_inhibitor": {
+            "format": "{icon}",
+            "format-icons": {
+                "activated": "",
+                "deactivated": ""
+            },
+            "tooltip-format-activated": "Blanking inhibitor {status}",
+            "tooltip-format-deactivated": "Blanking inhibitor {status}"
+        },
+        "custom/dnd": {
+            "return-type": "json",
+            "exec": "$HOME/.config/waybar/scripts/dnd.sh",
+            "interval": "once",
+            "signal": 1
+        },
+        "custom/nightlight": {
+            "return-type": "json",
+            "exec": "$HOME/.config/waybar/scripts/nightlight.sh",
+            "interval": "once",
+            "signal": 2
+        }
+    }
+]

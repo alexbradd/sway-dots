@@ -1,0 +1,14 @@
+# Nightlight
+set $nightlight_mode "Nightlight"
+mode --pango_markup $nightlight_mode {
+  bindsym {
+    e mode "default", exec 'systemctl --user start wlsunset && pkill -RTMIN+2 waybar'
+    d mode "default", exec 'systemctl --user stop wlsunset  && pkill -RTMIN+2 waybar'
+  }
+  bindsym Return mode "default"
+  bindsym Escape mode "default"
+}
+bindsym $mod+alt+l mode $nightlight_mode
+exec $nightlight_cmd
+
+# vim: set ft=swayconfig:

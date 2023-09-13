@@ -1,0 +1,11 @@
+[Unit]
+Description=Idle management daemon for Wayland
+Documentation=https://github.com/swaywm/swayidle
+BindsTo=sway-session.target
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/swayidle -w
+
+[Install]
+WantedBy=sway-session.target

@@ -1,0 +1,10 @@
+[Unit]
+Description=XDG Autostart
+BindsTo=sway-session.target
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/dex -a -e sway
+
+[Install]
+WantedBy=sway-session.target

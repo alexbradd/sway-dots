@@ -1,0 +1,16 @@
+bindgesture {
+  pinch:3:outward fullscreen enable
+  pinch:3:inward  fullscreen disable
+
+  swipe:3:up exec $menu
+
+  swipe:3:left  workspace prev_on_output
+  swipe:3:right workspace next_on_output
+
+  swipe:4:right focus output right
+  swipe:4:left  focus output left
+  swipe:4:up    focus output up
+  swipe:4:down  focus output down
+}
+
+# vim: set ft=swayconfig:

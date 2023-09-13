@@ -1,0 +1,47 @@
+### General
+anchor=top-right
+font=Victor Mono
+output=""
+layer=overlay
+
+### Interaction
+on-button-right=exec makoctl menu -n "$id" rofi -dmenu -theme theme-dmenu -p 'Select action'
+on-button-middle=dismiss
+default-timeout=10000
+
+### Looks
+width=400
+height=200
+margin=5,5
+padding=10
+border-size=2
+border-radius=5
+
+### Theme
+## Catppuccin Mocha
+# background-color=#1e1e2e
+# text-color=#cdd6f4
+# border-color=#89b4fa
+# progress-color=over #313244
+#
+# [urgency=high]
+# border-color=#f38ba8
+
+## Catppuccin Frappe
+background-color=#303446
+text-color=#c6d0f5
+border-color=#8caaee
+progress-color=over #414559
+
+[urgency=high]
+border-color=#e78284
+
+### Modes
+[mode=dnd]
+invisible=1
+
+[mode=nomultidisplay]
+output=eDP-1
+
+[mode=nofullscreen]
+layer=top

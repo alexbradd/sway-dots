@@ -1,0 +1,10 @@
+# Screen capture
+bindsym {
+  print     exec 'grim - | wl-copy'
+  alt+print exec 'grim $HOME/Pictures/Screenshots/$(date +Screenshot-%Y%m%d-%X).png'
+
+  shift+print     exec 'grim -g "$(slurp)" - | wl-copy'
+  shift+alt+print exec 'grim -g "$(slurp)" $HOME/Pictures/Screenshots/$(date +Screenshot-%Y%m%d-%X).png'
+}
+
+# vim: set ft=swayconfig:

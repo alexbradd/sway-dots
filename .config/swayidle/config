@@ -1,0 +1,7 @@
+lock 'swaylock -f'
+
+timeout 600 'swaylock -f; swaymsg "output eDP-1 power off"' resume 'swaymsg "output eDP-1 power on"'
+timeout 1200 'systemctl suspend'
+
+before-sleep 'swaylock -f'
+

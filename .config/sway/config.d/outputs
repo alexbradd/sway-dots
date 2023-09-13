@@ -1,0 +1,55 @@
+### Output configuration
+output * bg ~/Pictures/Wallpapers/pixels-d.webp fill
+
+# Known outputs
+output eDP-1 {
+  mode 2560x1440@40.002Hz
+  scale 1.25
+  subpixel rgb
+}
+output 'AOC CU34V5C UPJN6HA000565' {
+  mode 3440x1440@99.982Hz
+  subpixel rgb
+}
+
+# Modes
+set $output_management_mode "Manage outputs"
+
+mode --pango_markup $output_management_mode {
+  bindsym {
+    equal   mode "default", exec $heapscript edp high-refresh-rate
+    minus   mode "default", exec $heapscript edp low-refresh-rate
+    c       mode "default", exec systemctl --user restart kanshi
+    a       mode "default", exec wdisplays
+    d       mode "default", exec $heapscript dock enable
+    shift+d mode "default", exec $heapscript dock disable
+    n       mode "default", exec $heapscript notifications enable nomultidisplay
+    shift+n mode "default", exec $heapscript notifications disable nomultidisplay
+  }
+  bindsym Return mode "default"
+  bindsym Escape mode "default"
+}
+bindsym $mod+p mode $output_management_mode
+
+# Misc bindings
+bindsym {
+  ctrl+$mod+left  workspace prev_on_output
+  ctrl+$mod+right workspace next_on_output
+
+  ctrl+shift+$mod+left  move container to workspace prev
+  ctrl+shift+$mod+right move container to workspace next
+}
+
+bindsym {
+  alt+$mod+right focus output right
+  alt+$mod+left  focus output left
+  alt+$mod+up    focus output up
+  alt+$mod+down  focus output down
+
+  alt+shift+$mod+right move workspace to output right
+  alt+shift+$mod+left  move workspace to output left
+  alt+shift+$mod+up    move workspace to output up
+  alt+shift+$mod+down  move workspace to output down
+}
+
+# vim: set ft=swayconfig:

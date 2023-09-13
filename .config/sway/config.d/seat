@@ -1,0 +1,8 @@
+# Seats
+mode passthrough {
+	bindsym $mod+Pause mode default
+}
+bindsym $mod+Pause mode passthrough
+bindsym --inhibited control_l+control_r seat - pointer_constraint escape, seat - shortcuts_inhibitor disable
+
+# vim: set ft=swayconfig:

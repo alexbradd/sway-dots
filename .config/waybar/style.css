@@ -1,0 +1,150 @@
+@import "theme.css";
+
+window {
+  font-size: 10.5pt;
+  font-family: "Victor Mono Semibold", "FontAwesome 5 Free Solid";
+  background: @base;
+  color: @text;
+}
+
+.modules-right {
+  padding: 3px 0;
+}
+
+tooltip {
+  font-family: "Victor Mono Semibold", "FontAwesome 5 Free Solid";
+  background: @base;
+}
+tooltip label {
+  color: @text;
+}
+
+#workspaces {
+  padding: 0;
+  margin: 0;
+}
+#workspaces button {
+  background-color: @surface1;
+  border: 1px solid @surface2;
+  border-radius: 0;
+  margin: 0;
+  padding: 0 0.2em;
+}
+#workspaces button:not(.current_output) {
+  background-color: @surface1;
+  border: 1px solid @yellow;
+  border-radius: 0;
+  margin: 0;
+  padding: 0 0.2em;
+}
+#workspaces button.focused.current_output {
+  background-color: @surface0;
+  color: @mauve;
+  border-color: @mauve;
+}
+#workspaces button.visible:not(.focused) {
+  background-color: @surface0;
+  color: @blue;
+  border-color: @blue;
+}
+#workspaces button.urgent {
+  background-color: @surface0;
+  color: @red;
+  border-color: @red;
+}
+#workspaces button:hover {
+  background: @overlay0;
+  box-shadow: inherit;
+  text-shadow: inherit;
+}
+
+#custom-media,
+#custom-dnd,
+#custom-nightlight,
+#custom-herz,
+#mode,
+#tray,
+#scratchpad,
+#backlight,
+#clock,
+#battery,
+#pulseaudio,
+#bluetooth,
+#network,
+#idle_inhibitor {
+  padding: 0 6px;
+}
+
+#mode {
+  background: @overlay0;
+  border: 1px solid @overlay1;
+}
+
+#scratchpad {
+  font-family: "Victor Mono Semibold", "FontAwesome 5 Free Regular";
+  border-left: 1px solid @subtext1;
+}
+
+#clock {
+  color: @mauve;
+  border-left: 1px solid @subtext1;
+}
+
+#battery {
+  color: @green;
+}
+#battery.charging {
+  color: @green;
+}
+#battery.warning:not(.charging) {
+  color: @yellow;
+}
+#battery.critical:not(.charging) {
+  color: @red;
+}
+
+#backlight {
+  color: @yellow;
+  border-left: 1px solid @subtext1;
+}
+
+#bluetooth.connected,
+#bluetooth.on {
+  color: @blue;
+}
+
+#network {
+  border-left: 1px solid @subtext1;
+}
+#network.disconnected,
+#network.disabled {
+  color: @subtext0;
+}
+#network.linked {
+  color: @red;
+}
+#network.ethernet {
+  color: @peach;
+}
+#network.wifi {
+  color: @blue;
+}
+
+#pulseaudio {
+  color: @maroon;
+  border-left: 1px solid @subtext1;
+}
+
+#idle_inhibitor.activated {
+  color: @mauve;
+}
+
+#custom-dnd {
+  border-left: 1px solid @subtext1;
+}
+
+#custom-media {
+  color: @mauve;
+  border-left: 1px solid @subtext1;
+}
+

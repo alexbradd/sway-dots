@@ -1,0 +1,19 @@
+# Notifications
+set $notification_mode "Notifications"
+mode --pango_markup $notification_mode {
+  bindsym {
+    e       mode "default", exec '$heapscript notifications enable dnd && pkill -RTMIN+1 waybar'
+    shift+d mode "default", exec '$heapscript notifications disable dnd && pkill -RTMIN+1 waybar'
+
+    d exec makoctl dismiss
+    s exec makoctl restore
+
+    f       exec mode "default", exec $heapscript notifications enable nofullscreen
+    shift+f exec mode "default", exec $heapscript notifications disable nofullscreen
+  }
+  bindsym Return mode "default"
+  bindsym Escape mode "default"
+}
+bindsym $mod+alt+n mode $notification_mode
+
+# vim: set ft=swayconfig:

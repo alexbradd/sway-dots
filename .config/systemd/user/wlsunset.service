@@ -1,0 +1,11 @@
+[Unit]
+Description=Day/night gamma adjustments for Wayland compositors
+Documentation=https://sr.ht/~kennylevinsen/wlsunset
+BindsTo=sway-session.target
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/wlsunset -t 3000 -T 6500 -l 45.5 -L 9.2
+
+[Install]
+WantedBy=sway-session.target

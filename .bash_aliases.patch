@@ -1,0 +1,26 @@
+--- .bash_aliases	2023-09-14 00:05:39.399138239 +0200
++++ .bash_aliases.old	2023-09-14 00:05:29.748915166 +0200
+@@ -28,7 +28,22 @@
+ alias nv="nvim"
+ alias v="vim"
+ alias sv="sudo vim"
+-#
++
++### Configs ###
++swaycfg() {
++  local cfg_root="$HOME/.config/sway"
++  pushd $cfg_root
++  if [ -z "$1" ]; then $EDITOR "$cfg_root/config";
++  else $EDITOR "$cfg_root/config.d/$1"; fi
++  popd
++}
++waybarcfg() {
++  local cfg_root="$HOME/.config/waybar"
++  pushd $cfg_root
++  $EDITOR "$cfg_root/config"
++  popd
++}
++
+ ### Directories ###
+ UNI_ROOT="$HOME/Documents/uni/compsci-notes/"
+ cdd()  { cd "$HOME/Documents/$1"; }

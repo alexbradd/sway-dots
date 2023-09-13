@@ -1,0 +1,33 @@
+### Media keys bindings
+bindsym --locked {
+  XF86AudioPlay        exec playerctl play-pause
+  XF86AudioPrev        exec playerctl previous
+  XF86AudioNext        exec playerctl next
+  XF86AudioStop        exec playerctl stop
+
+  XF86AudioMute        exec pamixer -t
+  XF86AudioLowerVolume exec pamixer -d 10
+  XF86AudioRaiseVolume exec pamixer -i 10
+
+  XF86MonBrightnessUp   exec brightnessctl set 10%+
+  XF86MonBrightnessDown exec brightnessctl set 10%-
+}
+
+set $music_mode "Music control"
+mode --pango_markup $music_mode {
+  bindsym --locked {
+    right exec playerctl next
+    left  exec playerctl previous
+    down  exec playerctl play-pause
+    up    exec playerctl stop
+  }
+  bindsym Return mode "default"
+  bindsym Escape mode "default"
+}
+bindsym --locked $mod+alt+m mode $music_mode
+
+bindsym {
+  $mod+alt+f6 exec tuxedo-control-center
+  XF86TouchpadToggle input 2362:597:UNIW0001:00_093A:0255_Touchpad events toggle enabled disabled; exec notify-send "System" "Touchad toggled"
+}
+# vim: set ft=swayconfig:

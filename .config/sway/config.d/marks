@@ -1,0 +1,13 @@
+show_marks yes
+
+set $mark-input swaymsg -t get_marks | jq -r '.[]' | $sway-input -i
+bindsym {
+  $mod+period       exec $sway-input -F "mark '%s'" -P "Mark"
+  $mod+shift+period exec $mark-input -F "unmark '%s'" -P "Remove mark"
+  $mod+apostrophe   exec $mark-input -F "[con_mark='%s'] focus" -P "Goto mark"
+  $mod+slash        exec rofi -show window
+}
+
+bindsym $mod+semicolon [con_id="__focused__"] sticky toggle
+
+# vim: set ft=swayconfig:

@@ -1,0 +1,29 @@
+### Idle configuration
+set $exit_mode "Exit session"
+mode --pango_markup $exit_mode {
+  bindsym {
+    x mode "default", exec swaynag -t 'warning' -m 'Shutdown computer?'  -Z 'Yes' 'systemctl poweroff'  -s 'No'
+    r mode "default", exec swaynag -t 'warning' -m 'Reboot computer?'    -Z 'Yes' 'systemctl reboot'    -s 'No'
+    h mode "default", exec swaynag -t 'warning' -m 'Hibernate computer?' -Z 'Yes' 'systemctl hibernate' -s 'No'
+    e mode "default", exec swaynag -t 'warning' -m 'Exit session?'       -Z 'Yes' 'swaymsg exit'        -s 'No'
+    l mode "default", exec swaylock -f
+  }
+  bindsym --locked s mode "default", exec systemctl suspend
+
+  bindsym --locked Return mode "default"
+  bindsym --locked Escape mode "default"
+}
+bindsym --locked $mod+escape mode $exit_mode
+
+set $connectivity_mode "Connectivity"
+mode --pango_markup $connectivity_mode {
+  bindsym {
+    b exec rfkill toggle bluetooth
+    w exec rfkill toggle wlan
+  }
+  bindsym Return mode "default"
+  bindsym Escape mode "default"
+}
+bindsym $mod+alt+w mode $connectivity_mode
+
+# vim: set ft=swayconfig:
